@@ -59,7 +59,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   Stream<TimerState> _resume(Resume event) async* {
     if (state is TimerPaused) {
       _tickerSubscription?.resume();
-      yield TimerRunning(_duration);
+      yield TimerRunning(state.duration);
     }
   }
 
